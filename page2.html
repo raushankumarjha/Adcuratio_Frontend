@@ -1,0 +1,32 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style_page2.css">
+<center>
+<h1>DETAILS</h1>
+<hr/>
+</head>
+<body>
+ Welcome ...<span id="name_"></span>
+ Your Id number is <span id="ID_"></span>
+ <p>You are <span id="Age_"></span> year old</p>
+ <p>Gender is <span id="Gender_"></span></p>
+ <p>Email address is <span id="Email_"></span></p>
+ <p>Contact number is <span id="PhoneNo_"></span></p>
+
+
+ <script>
+  document.getElementById("name_").innerHTML=localStorage.getItem("textvalue");
+  document.getElementById("ID_").innerHTML=localStorage.getItem("textvalue1");
+  document.getElementById("Age_").innerHTML=localStorage.getItem("textvalue2");
+  document.getElementById("Gender_").innerHTML=localStorage.getItem("textvalue3");
+  document.getElementById("Email_").innerHTML=localStorage.getItem("textvalue4");
+  document.getElementById("PhoneNo_").innerHTML=localStorage.getItem("textvalue5");
+  
+
+
+
+
+ </script>
+ </center>
+ </body>
+ </html>

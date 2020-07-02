@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>	
+        <title>JavaScript Simple Login System</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+ 
+	</head>
+	<body>
+        <div class="loginbox">
+        <img src="avatar.png" class="avatar">
+        <h1>Login Here</h1>
+
+		<form action="page2.html">
+            <p>Email</p>
+            <input type="text" id="Email" placeholder="Choose Email">
+            <p>Password</p>
+			<input type="password" id="password" placeholder="Choose Password">
+            <button type="button" onclick="getInfo()">Log In</button>
+            <input type="submit" value="Details" onclick="passvalues();"/>
+            
+		</form>
+
+		<script>
+ 
+            // Loop through Array of Objects  
+      var objPeople = [
+         { // Object @ 0 index
+             Id: "1",
+             username: "Sam",
+             age: "11",
+             gender: "M",
+             Email: "Sam@12345",
+             PhoneNo: "84738927346",
+             password: "codify@12P"
+         },
+         { // Object @ 1 index
+             Id: "2",
+             username: "Matt",
+             age: "13",
+             gender: "M",
+             Email: "Matt@12345",
+             PhoneNo: "84738927346",
+             password: "academy@12P"
+         },
+         { // Object @ 2 index
+             Id: "3",
+             username: "Chris",
+             age: "12",
+             gender: "F",
+             Email: "Chris@12345",
+             PhoneNo: "84738927346",
+             password: "forever@12P"
+         }
+     
+     ]
+
+     var Id_new, Age_new,Gender_new, Email_new, contact_new, Username_new;
+    
+    
+
+     function getInfo() {
+
+         var Email1 = document.getElementById('Email').value
+         var password = document.getElementById('password').value
+
+
+
+        //exp 
+        var p = document.getElementById('password').value,
+        errors = [];
+        if (p.length < 8) {
+           errors.push("Your password must be at least 8 characters");
+        }
+        if (p.search(/[a-z]/) < 0) {
+           errors.push("Your password must contain at least one  lower case."); 
+        }
+        if (p.search(/[A-Z]/) < 0) {
+           errors.push("Your password must contain at least one upper case."); 
+        }
+        if (p.search(/[!@#$%^&*]/) < 0) {
+           errors.push("Your password must contain at least one  special character.");
+        }
+        if (p.search(/[0-9]/) < 0) {
+           errors.push("Your password must contain at least one digit.");
+        }
+         if (errors.length > 0) {
+            alert(errors.join("\n"));
+            return
+         }
+        //exp
+         for(var i = 0; i < objPeople.length; i++) {
+             // check is user input matches username and password of a current index of the objPeople array
+             if(Email1 == objPeople[i].Email && password == objPeople[i].password) {
+                 console.log(objPeople[i].username + " is logged in!!!")
+                 console.log(objPeople[i].Id + " is logged in!!!")
+                 alert(Email1  + " is logged in!!!");
+                 // stop the function if this is found to be true
+                 //var ans=i;
+                 Username_new=objPeople[i].username;
+                 Id_new=objPeople[i].Id;
+                 Age_new=objPeople[i].age;
+                 Gender_new=objPeople[i].gender;
+                 Email_new=objPeople[i].Email;
+                 contact_new=objPeople[i].PhoneNo;
+
+                 return
+             }
+         }
+         console.log("incorrect username or password")
+     }
+     function passvalues()
+     {
+         localStorage.setItem("textvalue",Username_new);
+         localStorage.setItem("textvalue1",Id_new);
+         localStorage.setItem("textvalue2",Age_new);
+         localStorage.setItem("textvalue3",Gender_new);
+         localStorage.setItem("textvalue4",Email_new);
+         localStorage.setItem("textvalue5",contact_new);
+
+         
+         return false;
+     }
+     
+     </script>
+     </div>
+	</body>
+</html>
